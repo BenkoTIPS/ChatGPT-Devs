@@ -1,0 +1,11 @@
+write an astroid game in HTML with moving ships, with up to 10 moving astroids and a player that has a name box which updates the name of the ship on the screen, use keyboard controls to move the ship but include friction so it slows to a stop after moving. Astroids don't have friction. 
+
+Allow me to shoot at the astroids with the space bar where the bullets move forward from the ship in whatever direction its moving. All objects drawn on the screen should be a different color than the background. 
+
+Use a triangle for the ship and circles for the astroids. The bullets should be a small dot and move twice as fast as the astroids. 
+
+Include collision detection and have the astroids bounce off the borders of the canvas, but the ship goes to the opposite side when it crosses a border. 
+
+Make the game end when the ship has been hit by astroids 3 times. Show the number of ships left at the bottom of the screen graphically. Bullets kill astroids, astroids kill ship. Ship regenerates and decrements the count of ships until the game is over.
+
+create an astroids game in HTML and JavaScript. Put it in one HTML File. Do not give comments or explanations. Make sure to include ships and astroids and make them a different color than the background. allow me to shoot astroids with the space bar. The game ends when I get hit or when I shoot all the astroids. Display a banner when it ends.

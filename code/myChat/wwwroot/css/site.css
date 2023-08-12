@@ -20,3 +20,18 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Add custom styles for the textarea */
+.chat-textarea {
+    width: 100%;
+    resize: none;
+    overflow-y: auto;
+    min-height: 100px;
+    max-height: 300px;
+}
+
+/* Add custom styles for the submit button */
+.submit-btn {
+    float: right;
+    margin-top: 10px;
+}
