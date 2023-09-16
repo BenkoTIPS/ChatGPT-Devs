@@ -13,10 +13,12 @@ git push -u origin main
 
 ## Demos
 
-
+dotnet new page -n Astroids -o code/myChat/Pages
+dotnet new page -n Chat -o code/myChat/Pages
 
 dotnet user-secrets -p code/myChat init
-dotnet user-secrets -p code/myChat set "OpenAI:ApiKey" "your-api-key-here"
+dotnet user-secrets -p code/myChat set "openaiKey" "your-api-key-here"
+dotnet user-secrets -p code/myChat set "openaiUrl" "your-api-url-here"
 
 dotnet add code/myChat package Azure.AI.OpenAI --version 1.0.0-beta.5
 
