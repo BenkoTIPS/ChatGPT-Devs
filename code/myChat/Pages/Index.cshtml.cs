@@ -34,7 +34,7 @@ public class IndexModel : PageModel
             var client = new OpenAIClient(new Uri(apiUrl), new AzureKeyCredential(apiKey));
     
             Response<ChatCompletions> responseWithoutStream = await client.GetChatCompletionsAsync(
-                "gpt-35-turbo",
+                "bnk-35-turbo",
                 new ChatCompletionsOptions()
                 {
                     Messages =
