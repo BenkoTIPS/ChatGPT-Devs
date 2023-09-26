@@ -1,3 +1,21 @@
+1. Help me explain chat gpt and how it works
+
+2. Explain it to a 10 year old
+
+3. Write a session about chatgpt for developers and include cool demos
+
+4. Create an astroids game in a single file which has moving astroids that are a different color than the background and ship, let me move my ship with the keyboard and shoot the astroids. When hit they disappear. Make it so my ship can move across the edges of the screen but the astroids bounce off the edges. When I hold down an arrow key accelerate my ship in that direction, but gradually slow down to a stop.
+
+5. Same thing but with HTML and JavaScript
+
+6. Write a singe page html and javascript that shows fireworks being shot off from the bottom of the screen, go up and then dissapate in many colors. Make it cool and respond to key strokes
+
+7. write a pacman game in a single page file with html and javascript, make it like the arcade but I use the arrow keys to control the direction. Include walls and ghosts and dots, and make the pacman eat the dots when it moves
+
+8. Create a breakout game in a single file like the others where I control my paddle with the arrow keys and have 4 layers of multi colored bricks, when I fail to hit the ball 3 times display a message that I lose. When I knock out all the bricks restart the game with the speed 20% faster than before each time until I lose
+
+9. Create a tetris game that is cool like in a real arcade with pieces that can be rotated, and uses the whole screen
+
 write an astroid game in HTML with moving ships, with up to 10 moving astroids and a player that has a name box which updates the name of the ship on the screen, use keyboard controls to move the ship but include friction so it slows to a stop after moving. Astroids don't have friction. 
 
 Allow me to shoot at the astroids with the space bar where the bullets move forward from the ship in whatever direction its moving. All objects drawn on the screen should be a different color than the background. 
