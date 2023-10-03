@@ -7,4 +7,4 @@ In this session, you will learn how to work with ChatGPT, a cutting-edge languag
 
 - Stephen Wolfram Writings [What Is ChatGPT Doing … and Why Does It Work?](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/)
 - Seth Juarez – [AI Show! - Roshambo](https://www.linkedin.com/events/aishowlive-let-sgettowork-rosha7072309086112940032/comments/)
-- 
+- Ars Technica - [How LMM's work](https://arstechnica.com/science/2023/07/a-jargon-free-explanation-of-how-ai-large-language-models-work/)
