@@ -19,6 +19,8 @@ public class ErrorModel : PageModel
         _logger = logger;
     }
 
+    // Test this
+    
     public void OnGet()
     {
         RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;

@@ -1,0 +1,124 @@
+@page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroids Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const ship = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: 15,
+            angle: 0,
+            speed: 5,
+        };
+
+        const asteroids = [];
+
+        function createAsteroid() {
+            const asteroid = {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: 20 + Math.random() * 30,
+                angle: Math.random() * Math.PI * 2,
+                speed: 1 + Math.random() * 2,
+            };
+            asteroids.push(asteroid);
+        }
+
+        function drawShip() {
+            ctx.beginPath();
+            ctx.moveTo(
+                ship.x + 4 * Math.cos(ship.angle),
+                ship.y - 4 * Math.sin(ship.angle)
+            );
+            ctx.lineTo(
+                ship.x - ship.radius * Math.cos(ship.angle - Math.PI / 8),
+                ship.y + ship.radius * Math.sin(ship.angle - Math.PI / 8)
+            );
+            ctx.lineTo(
+                ship.x - ship.radius * 0.6 * Math.cos(ship.angle),
+                ship.y + ship.radius * 0.6 * Math.sin(ship.angle)
+            );
+            ctx.lineTo(
+                ship.x - ship.radius * Math.cos(ship.angle + Math.PI / 8),
+                ship.y + ship.radius * Math.sin(ship.angle + Math.PI / 8)
+            );
+            ctx.closePath();
+            ctx.strokeStyle = "white";
+            ctx.stroke();
+        }
+
+        function drawAsteroids() {
+            for (const asteroid of asteroids) {
+                ctx.beginPath();
+                ctx.arc(asteroid.x, asteroid.y, asteroid.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = "white";
+                ctx.stroke();
+            }
+        }
+
+        function update() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the ship
+            drawShip();
+
+            // Draw the asteroids
+            drawAsteroids();
+
+            // Update ship position based on user input
+            if (keys.ArrowLeft) {
+                ship.angle -= 0.1;
+            }
+            if (keys.ArrowRight) {
+                ship.angle += 0.1;
+            }
+            if (keys.ArrowUp) {
+                ship.x += ship.speed * Math.cos(ship.angle);
+                ship.y -= ship.speed * Math.sin(ship.angle);
+            }
+
+            // Request the next frame
+            requestAnimationFrame(update);
+        }
+
+        const keys = {};
+
+        document.addEventListener("keydown", (event) => {
+            keys[event.key] = true;
+        });
+
+        document.addEventListener("keyup", (event) => {
+            keys[event.key] = false;
+        });
+
+        // Create initial asteroids
+        for (let i = 0; i < 5; i++) {
+            createAsteroid();
+        }
+
+        // Start the game loop
+        update();
+    </script>
+</body>
+</html>
