@@ -1,6 +1,8 @@
-# MDC23 - Chat GPT for Devs
+# ChatGPT-Devs Notes
 
-## What we did today
+## MDC23 - Chat GPT for Devs
+
+### What we did today
 
 1. How do I change spark plugs
 1. Write a limerick about it
