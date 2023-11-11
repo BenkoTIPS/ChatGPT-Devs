@@ -10,3 +10,44 @@
     <h1 class="display-4">Welcome <b>@Config["EnvName"]</b></h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+@Html.AntiForgeryToken()
+
+<div class="chat-container">
+    <div id="chat-log"></div>
+    <div class="chat-input">
+        <input type="text" id="chat-input" placeholder="Enter your message...">
+        <button id="send-button">Send</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function() {
+            var chatLog = $("#chat-log");
+            var chatInput = $("#chat-input");
+            var sendButton = $("#send-button");
+            var token = $('input[name="__RequestVerificationToken"]').val(); // get the anti-forgery token value
+
+            sendButton.click(function() {
+                var prompt = chatInput.val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/index?handler=SendMessage&message="+prompt,
+                    headers: {
+                        "RequestVerificationToken": token // include the anti-forgery token in the headers
+                    },
+                    contentType: "application/json",
+                    data: JSON.stringify({ message: prompt }),
+                    success: function(response) {
+                        chatLog.append("<div class='message'>You: " + prompt + "</div></br>");
+                        chatLog.append("<div class='message'>Chatbot: " + response + "</div></br>");
+                        chatInput.val("");
+                    }
+                });
+            });
+        });
+    </script>
+}

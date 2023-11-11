@@ -1,0 +1,99 @@
+@page
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asteroids Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      background-color: black;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const ship = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      size: 20,
+      speed: 5,
+      angle: 0,
+    };
+
+    const bullets = [];
+
+    const asteroids = [];
+
+    function drawShip() {
+      ctx.save();
+      ctx.translate(ship.x, ship.y);
+      ctx.rotate(ship.angle);
+      ctx.strokeStyle = "white";
+      ctx.beginPath();
+      ctx.moveTo(0, -ship.size);
+      ctx.lineTo(-ship.size / 2, ship.size / 2);
+      ctx.lineTo(ship.size / 2, ship.size / 2);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawAsteroids() {
+      ctx.fillStyle = "gray";
+      for (const asteroid of asteroids) {
+        ctx.beginPath();
+        ctx.arc(asteroid.x, asteroid.y, asteroid.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawBullets() {
+      ctx.fillStyle = "red";
+      for (const bullet of bullets) {
+        ctx.beginPath();
+        ctx.arc(bullet.x, bullet.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function update() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ship.x += Math.cos(ship.angle) * ship.speed;
+      ship.y += Math.sin(ship.angle) * ship.speed;
+
+      for (let i = bullets.length - 1; i >= 0; i--) {
+        bullets[i].x += Math.cos(bullets[i].angle) * 10;
+        bullets[i].y += Math.sin(bullets[i].angle) * 10;
+
+        if (
+          bullets[i].x < 0 ||
+          bullets[i].x > canvas.width ||
+          bullets[i].y < 0 ||
+          bullets[i].y > canvas.height
+        ) {
+          bullets.splice(i, 1);
+        }
+      }
+
+      drawShip();
+      drawAsteroids();
+      drawBullets();
+
+      requestAnimationFrame(update);
+    }
+
+    update();
+  </script>
+</body>
+</html>
